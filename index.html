@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفيق توبة - تطبيق التوبة والعادات الصالحة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <!-- HEADER -->
+        <header class="topbar">
+            <div class="brand-wrap">
+                <div class="brand-icon">����</div>
+                <div>
+                    <p class="eyebrow">تطبيق</p>
+                    <h1>رفيق توبة</h1>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="notificationBtn">🔔</button>
+                <button class="icon-btn" id="settingsBtn">⚙️</button>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard">
+            <!-- HERO SECTION -->
+            <section class="hero card">
+                <div class="hero-copy">
+                    <span class="pill">رحلة التوبة والاستمرارية</span>
+                    <h2>خذ خطوة اليوم، وكن أقرب إلى الله.</h2>
+                    <p>تابع عاداتك، حافظ على صلاتك، واحتفل بكل يوم من أيام التوبة والهدى.</p>
+                    <div class="hero-actions">
+                        <button class="primary-btn" id="todayGoodBtn">✅ تسجيل يوم جيد</button>
+                        <button class="secondary-btn" id="todayMissedBtn">⚠️ سجل تقصيري</button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span>أيام الاستمرار</span>
+                        <strong id="streakCount">24</strong>
+                        <small>يوم متواصل</small>
+                    </div>
+                    <div class="stat-box highlight">
+                        <span>التزام اليوم</span>
+                        <strong id="todayStatus">مستمر</strong>
+                        <small>حالة اليوم</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUICK STATS -->
+            <section class="quick-stats">
+                <div class="stat-quick">
+                    <span class="stat-icon">🕌</span>
+                    <div>
+                        <p>الصلوات المكتملة</p>
+                        <strong>4/5</strong>
+                    </div>
+                </div>
+                <div class="stat-quick">
+                    <span class="stat-icon">📖</span>
+                    <div>
+                        <p>تلاوة اليوم</p>
+                        <strong>3 صفحات</strong>
+                    </div>
+                </div>
+                <div class="stat-quick">
+                    <span class="stat-icon">🤝</span>
+                    <div>
+                        <p>الاستغفار</p>
+                        <strong>52 مرة</strong>
+                    </div>
+                </div>
+                <div class="stat-quick">
+                    <span class="stat-icon">💪</span>
+                    <div>
+                        <p>عادات اليوم</p>
+                        <strong>6/8</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- METRICS GRID -->
+            <section class="metrics-grid">
+                <!-- Prayer Times Card -->
+                <article class="card metric">
+                    <div class="metric-head">
+                        <span class="icon">⏰</span>
+                        <h3>مواقيت الصلاة</h3>
+                    </div>
+                    <div class="location-info">
+                        <small>📍 الرياض - السعودية</small>
+                    </div>
+                    <ul class="prayer-list" id="prayerList"></ul>
+                </article>
+
+                <!-- Qibla Direction Card -->
+                <article class="card metric">
+                    <div class="metric-head">
+                        <span class="icon">🧭</span>
+                        <h3>اتجاه القبلة</h3>
+                    </div>
+                    <div class="qibla-box">
+                        <div class="compass">
+                            <div class="compass-ring"></div>
+                            <div class="needle" id="qiblaNeedle"></div>
+                            <div class="center-dot"></div>
+                        </div>
+                        <p>الاتجاه الحالي: <strong id="qiblaDirection">الشرق</strong></p>
+                        <small id="qiblaAngle">زاوية: 35°</small>
+                    </div>
+                </article>
+
+                <!-- Daily Habits Card -->
+                <article class="card metric">
+                    <div class="metric-head">
+                        <span class="icon">📊</span>
+                        <h3>متابعة العادات</h3>
+                    </div>
+                    <div class="habit-list" id="habitList"></div>
+                </article>
+            </section>
+
+            <!-- LOWER SECTION -->
+            <section class="lower-grid">
+                <!-- Quran Verses & Hadith -->
+                <article class="card">
+                    <div class="section-header">
+                        <h3>📖 آيات وأحاديث عن التوبة</h3>
+                    </div>
+                    <div class="content-block" id="verseBlock"></div>
+                    <button class="link-btn" id="moreVersesBtn">اعرض المزيد →</button>
+                </article>
+
+                <!-- Supplications -->
+                <article class="card">
+                    <div class="section-header">
+                        <h3>🤲 أدعية التوبة</h3>
+                    </div>
+                    <div class="content-block" id="duaBlock"></div>
+                    <button class="link-btn" id="moreDuasBtn">اعرض المزيد →</button>
+                </article>
+
+                <!-- Prayer Tracking -->
+                <article class="card">
+                    <div class="section-header">
+                        <h3>📊 سجل الصلوات اليومية</h3>
+                    </div>
+                    <div class="prayer-tracking" id="prayerTracking"></div>
+                </article>
+
+                <!-- Motivation Message -->
+                <article class="card">
+                    <div class="section-header">
+                        <h3>💭 رسالة تشجيعية</h3>
+                    </div>
+                    <div class="content-block" id="motivationBlock"></div>
+                </article>
+
+                <!-- Achievements & Badges -->
+                <article class="card">
+                    <div class="section-header">
+                        <h3>🏆 إنجازات وشارات</h3>
+                    </div>
+                    <div class="achievement-grid" id="achievementList"></div>
+                </article>
+
+                <!-- Personal Goals -->
+                <article class="card">
+                    <div class="section-header">
+                        <h3>🎯 أهداف شخصية للطاعة</h3>
+                    </div>
+                    <div class="goals-list" id="goalsList"></div>
+                </article>
+
+                <!-- Daily Log -->
+                <article class="card wide-card">
+                    <div class="section-header">
+                        <h3>📅 السجل اليومي</h3>
+                    </div>
+                    <div class="daily-log" id="dailyLog"></div>
+                </article>
+
+                <!-- Stories -->
+                <article class="card wide-card">
+                    <div class="section-header">
+                        <h3>📚 قصص قصيرة عن التوبة من القرآن والسنة</h3>
+                    </div>
+                    <div class="story-list" id="storyList"></div>
+                </article>
+
+                <!-- Repentance Journal -->
+                <article class="card wide-card">
+                    <div class="section-header">
+                        <h3>📝 مذكرة التوبة اليومية</h3>
+                    </div>
+                    <form id="repentanceForm">
+                        <textarea id="journalEntry" placeholder="اكتب أفكارك وشعورك تجاه رحلتك اليوم..." rows="4"></textarea>
+                        <button type="submit" class="primary-btn">💾 حفظ المذكرة</button>
+                    </form>
+                </article>
+
+                <!-- Streak Counter & Restart -->
+                <article class="card wide-card">
+                    <div class="section-header">
+                        <h3>🔥 عداد أيام الاستمرار</h3>
+                    </div>
+                    <div class="streak-section">
+                        <div class="big-counter">
+                            <span id="bigStreakCount">24</span>
+                            <p>يوم متواصل</p>
+                        </div>
+                        <div class="streak-info">
+                            <p>أطول سلسلة: <strong>45 يوم</strong></p>
+                            <p>آخر يوم متميز: <strong>اليوم 🎉</strong></p>
+                        </div>
+                        <button class="ghost-btn" id="restartBtn">🔄 ابدأ من جديد (بدون جلد للذات)</button>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <p>🌱 رفيق توبة - رفيقك في رحلة التوبة والعودة إلى الله</p>
+            <p>جزاك الله خيراً على التزامك</p>
+        </footer>
+    </div>
+
+    <!-- MODAL FOR RESTART CONFIRMATION -->
+    <div id="restartModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>ابدأ من جديد</h3>
+            <p>هل أنت متأكد أنك تريد إعادة تشغيل العداد؟</p>
+            <p class="modal-note">لا تقلق! هذا ليس فشل. كل يوم جديد هو فرصة جديدة للعودة إلى الله.</p>
+            <div class="modal-actions">
+                <button id="confirmRestart" class="primary-btn">✅ نعم، ابدأ من جديد</button>
+                <button id="cancelRestart" class="secondary-btn">❌ الغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
